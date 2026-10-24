@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusFind | Lost &amp; Found Portal</title>
+    <meta name="description"
+          content="CampusFind helps students report and recover lost belongings on campus.">
+    <meta name="theme-color" content="#172554">
+
+    <link rel="icon" type="image/png" href="/av-logo.png">
+    <link rel="apple-touch-icon" href="/av-logo.png">
+
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+
+<body>
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="#dashboard" class="brand">
+            <img src="/av-logo.png"
+                 alt="CampusFind Logo"
+                 class="brand-logo">
+            <span class="brand-name">
+                Campus<span class="brand-accent">Find</span>
+            </span>
+        </a>
+
+        <p class="sidebar-label">WORKSPACE</p>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+            <a href="#dashboard" class="nav-link active">
+                <span class="nav-icon" aria-hidden="true">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#reports" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">⌕</span>
+                <span>Browse Reports</span>
+            </a>
+
+            <a href="#report-form" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">＋</span>
+                <span>Report an Item</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-help">
+            <div class="help-icon" aria-hidden="true">?</div>
+            <h3>Lost something?</h3>
+            <p>
+                Your campus community can help you reconnect
+                with your belongings.
+            </p>
+            <a href="#report-form">
+                Submit a report <span>→</span>
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <span class="status-dot"></span>
+            Campus community portal
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+            <div class="topbar-heading">
+                <p class="eyebrow">CAMPUS COMMUNITY</p>
+                <h1>Lost &amp; Found Dashboard</h1>
+                <p class="topbar-subtitle">
+                    Manage and discover lost belongings around your campus.
+                </p>
+            </div>
+
+            <button type="button"
+                    class="primary-button topbar-button"
+                    id="open-report-btn">
+                <span aria-hidden="true">＋</span>
+                Report an Item
+            </button>
+        </header>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="dashboard-section">
+
+            <div class="welcome-banner">
+                <div class="welcome-copy">
+                    <span class="welcome-tag">
+                        YOUR CAMPUS, CONNECTED
+                    </span>
+
+                    <h2>Lost something?<br>Let's find it.</h2>
+
+                    <p>
+                        Report a lost belonging or help someone recover
+                        theirs. Every report brings our campus community
+                        one step closer.
+                    </p>
+
+                    <a href="#report-form" class="banner-link">
+                        Report a Lost or Found Item
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <div class="welcome-art" aria-hidden="true">
+                    <div class="art-circle">
+                        <span class="art-search">⌕</span>
+                        <span class="art-item art-book">▤</span>
+                        <span class="art-item art-key">⚿</span>
+                        <span class="art-item art-card">▣</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Total Reports</span>
+                        <span class="stat-icon purple"
+                              aria-hidden="true">▦</span>
+                    </div>
+                    <p class="stat-number" id="total-reports">0</p>
+                    <p class="stat-caption">All submitted reports</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Lost Items</span>
+                        <span class="stat-icon orange"
+                              aria-hidden="true">⌕</span>
+                    </div>
+                    <p class="stat-number" id="lost-count">0</p>
+                    <p class="stat-caption">Items reported missing</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Found Items</span>
+                        <span class="stat-icon green"
+                              aria-hidden="true">✓</span>
+                    </div>
+                    <p class="stat-number" id="found-count">0</p>
+                    <p class="stat-caption">Items reported found</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Reports -->
+        <section id="reports" class="reports-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">COMMUNITY BOARD</p>
+                    <h2>Recent Reports</h2>
+                    <p class="section-subtitle">
+                        Browse reports and help reunite people
+                        with their belongings.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Search and category filter -->
+            <div class="search-panel">
+                <label class="search-box" for="search-input">
+                    <span class="search-symbol" aria-hidden="true">⌕</span>
+                    <input type="search"
+                           id="search-input"
+                           placeholder="Search item name or location..."
+                           autocomplete="off">
+                </label>
+
+                <label class="category-filter" for="category-filter">
+                    <span class="sr-only">Filter by category</span>
+                    <select id="category-filter">
+                        <option value="">All Categories</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="ID Card">ID Card</option>
+                        <option value="Books & Notes">Books &amp; Notes</option>
+                        <option value="Bags">Bags</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Keys">Keys</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- Report type filters -->
+            <div class="filter-tabs"
+                 role="group"
+                 aria-label="Filter reports by type">
+
+                <button type="button"
+                        class="filter-tab active"
+                        data-type="all"
+                        aria-pressed="true">
+                    All Reports
+                </button>
+
+                <button type="button"
+                        class="filter-tab"
+                        data-type="lost"
+                        aria-pressed="false">
+                    Lost Items
+                </button>
+
+                <button type="button"
+                        class="filter-tab"
+                        data-type="found"
+                        aria-pressed="false">
+                    Found Items
+                </button>
+            </div>
+
+            <!-- Report cards are generated by script.js -->
+            <div id="reports-container"
+                 class="reports-grid"
+                 aria-live="polite"
+                 aria-busy="true">
+                <div class="loading-state">
+                    <span class="loading-spinner"></span>
+                    <p>Loading campus reports...</p>
+                </div>
+            </div>
+
+            <!-- Edit/Delete actions for report cards.
+                 script.js will insert this template into each card. -->
+            <template id="report-card-actions-template">
+                <div class="report-actions" aria-label="Report actions">
+                    <button type="button"
+                            class="report-action-button edit-report-btn"
+                            data-action="edit"
+                            aria-label="Edit this report">
+                        <span aria-hidden="true">✎</span>
+                        Edit
+                    </button>
+
+                    <button type="button"
+                            class="report-action-button delete-report-btn"
+                            data-action="delete"
+                            aria-label="Delete this report">
+                        <span aria-hidden="true">🗑</span>
+                        Delete
+                    </button>
+                </div>
+            </template>
+
+            <p id="reports-message"
+               class="reports-message"
+               role="status"
+               aria-live="polite"></p>
+        </section>
+
+        <!-- Report Form -->
+        <section id="report-form" class="form-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">MAKE A DIFFERENCE</p>
+                    <h2 id="report-form-heading">Report an Item</h2>
+                    <p class="section-subtitle">
+                        Provide accurate details to help identify
+                        and recover the item.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <form id="report-form-element" novalidate>
+
+                    <!-- All validation errors will be displayed here -->
+                    <div id="form-message"
+                         class="form-message"
+                         role="alert"
+                         aria-live="polite"
+                         tabindex="-1"
+                         hidden></div>
+
+                    <div class="form-field">
+                        <label for="type">
+                            Report Type <span>*</span>
+                        </label>
+                        <select id="type" name="type" required>
+                            <option value="">Choose report type</option>
+                            <option value="lost">I lost an item</option>
+                            <option value="found">I found an item</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="itemName">
+                            Item Name <span>*</span>
+                        </label>
+                        <input type="text"
+                               id="itemName"
+                               name="itemName"
+                               placeholder="e.g. Black wireless headphones"
+                               minlength="2"
+                               maxlength="80"
+                               required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="category">
+                            Category <span>*</span>
+                        </label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="ID Card">ID Card</option>
+                            <option value="Books & Notes">Books &amp; Notes</option>
+                            <option value="Bags">Bags</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Keys">Keys</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="location">
+                            Campus Location <span>*</span>
+                        </label>
+                        <input type="text"
+                               id="location"
+                               name="location"
+                               placeholder="e.g. Library, second floor"
+                               minlength="2"
+                               maxlength="100"
+                               required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="date">
+                            Date Lost or Found <span>*</span>
+                        </label>
+                        <input type="date"
+                               id="date"
+                               name="date"
+                               required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contact">
+                            Contact Details <span>*</span>
+                        </label>
+                        <input type="text"
+                               id="contact"
+                               name="contact"
+                               placeholder="Email or phone number"
+                               minlength="5"
+                               maxlength="100"
+                               required>
+                    </div>
+
+                    <div class="form-field full-width">
+                        <label for="description">
+                            Additional Description
+                        </label>
+                        <textarea id="description"
+                                  name="description"
+                                  rows="4"
+                                  maxlength="500"
+                                  placeholder="Describe the item's colour, features, or other useful details..."></textarea>
+                        <small>Maximum 500 characters.</small>
+                    </div>
+
+                    <div class="form-actions full-width">
+                        <p><span>*</span> Required fields</p>
+
+                        <button type="submit"
+                                id="submit-report-btn"
+                                class="primary-button">
+                            Submit Report <span>→</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <div class="footer-brand">
+                <img src="/av-logo.png"
+                     alt=""
+                     class="footer-logo">
+                <p>
+                    <strong>CampusFind</strong>
+                    <span>Helping campus belongings find their way home.</span>
+                </p>
+            </div>
+
+            <a href="#dashboard">Back to top ↑</a>
+        </footer>
+
+    </main>
+</div>
+</body>
+</html>

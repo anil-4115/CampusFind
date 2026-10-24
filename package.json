@@ -1,0 +1,17 @@
+{
+  "name": "campus-lost-and-found",
+  "version": "1.1.0",
+  "description": "CampusFind Lost and Found Portal with GitHub JSON persistence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["campusfind", "lost-and-found", "express", "github-api", "json-storage"],
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

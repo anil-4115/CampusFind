@@ -1,0 +1,1410 @@
+
+/* =========================================
+   CAMPUSFIND - COMPLETE RESPONSIVE STYLES
+   ========================================= */
+
+/* ---------- 1. Global styles ---------- */
+
+:root {
+    --navy: #172554;
+    --navy-dark: #101d3b;
+    --navy-light: #243b70;
+    --blue: #3159e7;
+    --blue-hover: #2448cb;
+    --blue-soft: #edf2ff;
+    --page-bg: #f4f7fd;
+    --white: #ffffff;
+    --text: #152342;
+    --muted: #7182a6;
+    --border: #dfe6f2;
+    --red: #c92121;
+    --red-bg: #fff0f0;
+    --red-border: #ffbcbc;
+    --green: #07865c;
+    --orange: #d97706;
+    --purple: #7355e8;
+    --shadow: 0 8px 24px rgba(22, 43, 88, 0.055);
+    --radius: 14px;
+    --sidebar-width: 226px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--page-bg);
+    overflow-x: clip;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(49, 89, 231, 0.28);
+    outline-offset: 2px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- 2. Main application layout ---------- */
+
+.app-layout {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    height: 100vh;
+    height: 100dvh;
+    padding: 22px 20px 18px;
+    color: #ffffff;
+    background: var(--navy);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.main-content {
+    width: auto;
+    min-width: 0;
+    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+    padding: 28px clamp(20px, 2.2vw, 38px) 20px;
+}
+
+/* ---------- 3. Sidebar and logo ---------- */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 40px;
+}
+
+.brand-logo {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.brand-name {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+    white-space: nowrap;
+}
+
+.brand-accent {
+    color: #91b0ff;
+}
+
+.sidebar-label {
+    margin: 0 0 12px 10px;
+    color: #9bb0e1;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 42px;
+    padding: 10px 12px;
+    border-radius: 9px;
+    color: #d6e1ff;
+    font-size: 12px;
+    font-weight: 650;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.nav-link.active {
+    color: #ffffff;
+    background: #30477d;
+    box-shadow: inset 3px 0 #86a4ff;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.sidebar-help {
+    margin-top: auto;
+    margin-bottom: 22px;
+    padding: 14px 12px;
+    border: 1px solid rgba(174, 196, 255, 0.15);
+    border-radius: 12px;
+    background: #203664;
+}
+
+.help-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background: #3c5896;
+    font-weight: 800;
+}
+
+.sidebar-help h3 {
+    margin: 0 0 5px;
+    font-size: 12px;
+}
+
+.sidebar-help p {
+    margin: 0 0 10px;
+    color: #d0dcf8;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.sidebar-help a {
+    color: #c9d8ff;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.sidebar-help a span {
+    margin-left: 4px;
+}
+
+.sidebar-footer {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #c5d4f8;
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: #36d399;
+    box-shadow: 0 0 0 3px rgba(54, 211, 153, 0.12);
+}
+
+/* ---------- 4. Header ---------- */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar-heading {
+    min-width: 0;
+}
+
+.eyebrow {
+    margin: 0 0 6px;
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.6px;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: clamp(23px, 2vw, 30px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.9px;
+    overflow-wrap: anywhere;
+}
+
+.topbar-subtitle,
+.section-subtitle {
+    margin: 7px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 42px;
+    padding: 11px 17px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    color: #ffffff;
+    background: var(--blue);
+    font-size: 12px;
+    font-weight: 750;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(49, 89, 231, 0.12);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.primary-button:hover {
+    background: var(--blue-hover);
+    transform: translateY(-1px);
+}
+
+.topbar-button {
+    flex-shrink: 0;
+}
+
+/* ---------- 5. Welcome banner ---------- */
+
+.welcome-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+    min-height: 225px;
+    margin-bottom: 22px;
+    padding: 30px clamp(22px, 3vw, 40px);
+    overflow: hidden;
+    border-radius: 15px;
+    color: #ffffff;
+    background: linear-gradient(115deg, #263f91, #315be2 72%, #4d70ee);
+    box-shadow: 0 12px 28px rgba(49, 89, 231, 0.13);
+}
+
+.welcome-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 570px;
+    min-width: 0;
+}
+
+.welcome-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 4px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 5px;
+    color: #e4ebff;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.welcome-copy h2 {
+    margin: 0;
+    font-size: clamp(25px, 2.4vw, 35px);
+    font-weight: 850;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+}
+
+.welcome-copy p {
+    max-width: 440px;
+    margin: 12px 0 17px;
+    color: #e3eaff;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.banner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.banner-link:hover {
+    text-decoration: underline;
+}
+
+.welcome-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 180px;
+    min-width: 0;
+}
+
+.art-circle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 145px;
+    height: 145px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 10px rgba(255, 255, 255, 0.055),
+        0 0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+.art-search {
+    color: #ffffff;
+    font-size: 65px;
+    line-height: 1;
+    transform: rotate(-15deg);
+}
+
+.art-item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 9px;
+    color: var(--blue);
+    background: #ffffff;
+    box-shadow: 0 5px 14px rgba(10, 25, 70, 0.12);
+    font-size: 21px;
+}
+
+.art-book {
+    top: -3px;
+    left: 5px;
+}
+
+.art-key {
+    top: 40px;
+    right: -18px;
+}
+
+.art-card {
+    bottom: -2px;
+    left: 10px;
+}
+
+/* ---------- 6. Statistics cards ---------- */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 38px;
+}
+
+.stat-card {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.stat-icon.purple {
+    color: var(--purple);
+    background: #f0eaff;
+}
+
+.stat-icon.orange {
+    color: var(--orange);
+    background: #fff3df;
+}
+
+.stat-icon.green {
+    color: var(--green);
+    background: #dff8ed;
+}
+
+.stat-number {
+    margin: 9px 0 0;
+    color: #111f3d;
+    font-size: 29px;
+    font-weight: 850;
+    line-height: 1.2;
+}
+
+.stat-caption {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* ---------- 7. Sections ---------- */
+
+.dashboard-section,
+.reports-section,
+.form-section {
+    width: 100%;
+    min-width: 0;
+    scroll-margin-top: 24px;
+}
+
+.reports-section {
+    margin-bottom: 44px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 820;
+    line-height: 1.3;
+    letter-spacing: -0.4px;
+    overflow-wrap: anywhere;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 7px;
+}
+
+/* ---------- 8. Search and category filters ---------- */
+
+.search-panel {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 14px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 43px;
+    padding: 0 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box:focus-within {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(49, 89, 231, 0.08);
+}
+
+.search-symbol {
+    flex: 0 0 auto;
+    color: #8090b0;
+    font-size: 23px;
+    line-height: 1;
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 0;
+    border: 0;
+    outline: 0;
+    color: var(--text);
+    background: transparent;
+    font-size: 12px;
+}
+
+.search-box input:focus-visible {
+    outline: none;
+}
+
+.search-box input::placeholder,
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #94a2be;
+}
+
+.category-filter {
+    flex: 0 0 145px;
+    min-width: 0;
+}
+
+.category-filter select {
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    color: #526383;
+    background: #ffffff;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+/* ---------- 9. Report type tabs ---------- */
+
+.filter-tabs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+.filter-tab {
+    min-height: 36px;
+    padding: 8px 13px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #667696;
+    background: transparent;
+    font-size: 11px;
+    font-weight: 650;
+    transition: background 0.2s, color 0.2s;
+}
+
+.filter-tab:hover {
+    color: var(--blue);
+    background: #eaf0ff;
+}
+
+.filter-tab.active {
+    border-color: #d9e3ff;
+    color: var(--blue);
+    background: #eaf0ff;
+    font-weight: 800;
+}
+
+/* ---------- 10. Report cards ---------- */
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+}
+
+.report-card,
+.item-card {
+    min-width: 0;
+    padding: 17px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.report-card:hover,
+.item-card:hover {
+    box-shadow: 0 12px 28px rgba(22, 43, 88, 0.09);
+    transform: translateY(-2px);
+}
+
+.report-card h3,
+.item-card h3 {
+    margin: 10px 0 4px;
+    color: #152342;
+    font-size: 14px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.report-card p,
+.item-card p {
+    overflow-wrap: anywhere;
+}
+
+.report-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-width: 0;
+}
+
+.report-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border-radius: 10px;
+    color: var(--blue);
+    background: #edf1ff;
+    font-size: 20px;
+}
+
+.report-type-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: 850;
+    text-transform: uppercase;
+}
+
+.report-type-badge.lost,
+.lost-badge {
+    color: #c65a00;
+    background: #fff0e3;
+}
+
+.report-type-badge.found,
+.found-badge {
+    color: #07865c;
+    background: #e0f8ed;
+}
+
+.report-description {
+    margin: 5px 0 12px;
+    color: #7483a2;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.report-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #edf0f7;
+}
+
+.report-meta p {
+    margin: 0;
+    color: #647494;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.report-meta strong {
+    color: #263756;
+}
+
+.report-number {
+    margin-top: 9px;
+    color: #8190ac;
+    font-size: 10px;
+}
+
+/* ---------- 11. Edit and Delete buttons ---------- */
+
+.report-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #edf0f7;
+}
+
+.report-action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 34px;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: #ffffff;
+    font-size: 11px;
+    font-weight: 750;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.edit-report-btn {
+    border-color: #d4dfff;
+    color: var(--blue);
+}
+
+.edit-report-btn:hover {
+    background: #edf2ff;
+    border-color: #aebfff;
+}
+
+.delete-report-btn {
+    border-color: #ffd0d0;
+    color: #d12b36;
+}
+
+.delete-report-btn:hover {
+    background: #fff0f0;
+    border-color: #f2a5a5;
+}
+
+/* ---------- 12. Loading and empty states ---------- */
+
+.loading-state,
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 150px;
+    padding: 28px;
+    border: 1px dashed #d5deef;
+    border-radius: 12px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.6);
+    text-align: center;
+}
+
+.loading-state {
+    grid-column: 1 / -1;
+}
+
+.loading-state p,
+.empty-state p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.loading-spinner {
+    width: 27px;
+    height: 27px;
+    border: 3px solid #dce5ff;
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: cf-spin 0.8s linear infinite;
+}
+
+@keyframes cf-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.reports-message {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ---------- 13. Report form container ---------- */
+
+.form-section {
+    margin-bottom: 32px;
+}
+
+.form-card {
+    width: 100%;
+    min-width: 0;
+    padding: clamp(18px, 2vw, 26px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: var(--shadow);
+}
+
+/* Two-column form layout */
+#report-form-element {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 18px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* ---------- 14. Validation panel: full-width fix ---------- */
+
+/*
+   The message is a direct child of the form.
+   Explicit grid placement makes it span both columns.
+*/
+#report-form-element > #form-message,
+#report-form-element > .form-message {
+    grid-column: 1 / -1 !important;
+    justify-self: stretch;
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 0 2px;
+    padding: 14px 16px;
+    border: 1px solid var(--red-border);
+    border-radius: 8px;
+    color: var(--red);
+    background: var(--red-bg);
+    font-size: 11px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* When hidden, it must not occupy any grid space */
+#report-form-element > #form-message[hidden],
+#report-form-element > .form-message[hidden] {
+    display: none !important;
+}
+
+#form-message strong,
+.form-message strong {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+#form-message ul,
+.form-message ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#form-message li,
+.form-message li {
+    margin: 2px 0;
+}
+
+/* ---------- 15. Form fields ---------- */
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+    min-width: 0;
+}
+
+.form-field label {
+    color: #203453;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.form-field label span,
+.form-actions > p span {
+    color: #df4a4a;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    border: 1px solid #d8e1f0;
+    border-radius: 8px;
+    outline: none;
+    color: #263957;
+    background: #ffffff;
+    font-size: 11px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field input,
+.form-field select {
+    min-height: 41px;
+    padding: 10px 12px;
+}
+
+.form-field select {
+    cursor: pointer;
+}
+
+.form-field textarea {
+    min-height: 90px;
+    padding: 12px;
+    line-height: 1.7;
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(49, 89, 231, 0.09);
+}
+
+.form-field input[aria-invalid="true"],
+.form-field select[aria-invalid="true"],
+.form-field textarea[aria-invalid="true"] {
+    border-color: #e35b5b;
+    background-color: #fffafa;
+}
+
+.form-field small {
+    color: #8190ad;
+    font-size: 10px;
+}
+
+#report-form-element > .form-field.full-width,
+#report-form-element > .form-actions.full-width {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+}
+
+/* ---------- 16. Form buttons and footer row ---------- */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 0;
+    padding-top: 15px;
+    border-top: 1px solid #e7edf7;
+}
+
+.form-actions > p {
+    margin: 0;
+    color: #7b8baa;
+    font-size: 10px;
+}
+
+.form-actions .primary-button {
+    min-width: 135px;
+}
+
+/* ---------- 17. Footer ---------- */
+
+.page-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+    padding: 18px 0 6px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.footer-logo {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.footer-brand p {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-width: 0;
+}
+
+.footer-brand strong {
+    color: #253657;
+    font-size: 11px;
+}
+
+.footer-brand p span {
+    color: var(--muted);
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+.page-footer > a {
+    flex-shrink: 0;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ---------- 18. Tablet and zoomed-in layouts ---------- */
+
+/*
+   Browser zoom reduces the effective CSS viewport width.
+   At this breakpoint, use a stacked sidebar and content.
+*/
+@media (max-width: 900px) {
+    .sidebar {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 15px 20px;
+        overflow: visible;
+    }
+
+    .brand {
+        margin-bottom: 18px;
+    }
+
+    .sidebar-label {
+        margin-bottom: 8px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .nav-link {
+        flex: 0 1 auto;
+    }
+
+    .sidebar-help {
+        display: none;
+    }
+
+    .sidebar-footer {
+        margin-top: 14px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 24px;
+    }
+
+    .reports-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .welcome-art {
+        flex-basis: 130px;
+    }
+
+    .art-circle {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* ---------- 19. Mobile and narrow viewports ---------- */
+
+@media (max-width: 650px) {
+    .main-content {
+        padding: 18px 14px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding-bottom: 18px;
+    }
+
+    .topbar-button {
+        width: 100%;
+    }
+
+    .welcome-banner {
+        min-height: 0;
+        padding: 23px 19px;
+    }
+
+    .welcome-art {
+        display: none;
+    }
+
+    .welcome-copy h2 {
+        font-size: 28px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 28px;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-number {
+        font-size: 25px;
+    }
+
+    .reports-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .search-panel {
+        flex-direction: column;
+    }
+
+    .category-filter {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .filter-tabs {
+        gap: 4px;
+    }
+
+    .filter-tab {
+        padding: 8px 10px;
+    }
+
+    /* Single-column form, including validation panel */
+    #report-form-element {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    #report-form-element > #form-message,
+    #report-form-element > .form-message,
+    #report-form-element > .form-field.full-width,
+    #report-form-element > .form-actions.full-width {
+        grid-column: 1 / -1 !important;
+    }
+
+    .form-card {
+        padding: 17px;
+    }
+
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .form-actions .primary-button {
+        width: 100%;
+    }
+
+    .page-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* ---------- 20. Very narrow screens ---------- */
+
+@media (max-width: 380px) {
+    .sidebar {
+        padding: 13px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .nav-link {
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .main-content {
+        padding: 15px 10px;
+    }
+
+    .stats-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .welcome-banner {
+        padding: 19px 15px;
+    }
+
+    .welcome-copy h2 {
+        font-size: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .form-card {
+        padding: 13px;
+    }
+
+    .report-card,
+    .item-card {
+        padding: 13px;
+    }
+}
+
+/* ---------- 21. Reduced motion accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ---------- Form feedback messages ---------- */
+
+#form-message {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+#form-message[hidden],
+#form-message:empty {
+    display: none !important;
+}
+
+/* Green feedback for successful create/update actions */
+#form-message.form-message.success,
+#form-message.success {
+    color: #166534;
+    background-color: #dcfce7;
+    border: 1px solid #86efac;
+}
+
+/* Red feedback for validation and API errors */
+#form-message.form-message.error,
+#form-message.error {
+    color: #b91c1c;
+    background-color: #fee2e2;
+    border: 1px solid #fca5a5;
+}
+
+#form-message ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+
+#form-message li {
+    margin-bottom: 4px;
+}
+
+/* Final override: the form-grid validation rule above is more specific.
+   Keep successful submit/edit messages green and actual errors red. */
+#report-form-element > #form-message.form-message.success,
+#report-form-element > #form-message.success {
+    color: #166534 !important;
+    background-color: #dcfce7 !important;
+    border-color: #86efac !important;
+}
+
+#report-form-element > #form-message.form-message.error,
+#report-form-element > #form-message.error {
+    color: #b91c1c !important;
+    background-color: #fee2e2 !important;
+    border-color: #fca5a5 !important;
+}
