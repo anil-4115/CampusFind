@@ -1,5 +1,16 @@
 [
   {
+    "id": 2,
+    "type": "lost",
+    "itemName": "Laptop Charger",
+    "category": "Electronics",
+    "location": "In H building",
+    "date": "2026-10-15",
+    "contact": "7889615486",
+    "description": "",
+    "createdAt": "2026-10-24T17:29:30.302Z"
+  },
+  {
     "id": 1,
     "type": "lost",
     "itemName": "Black Wired Earphones",
